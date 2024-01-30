@@ -11,6 +11,6 @@ def validUTF8(data):
             test = True
         else:
             test = False
-    if test == True:
+    if test:
         return True
     return False
