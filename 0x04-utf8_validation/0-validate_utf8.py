@@ -5,10 +5,12 @@ def validUTF8(data):
     """check if a given dataset is a valid UTF-8 encoding"""
     test = True
     for ele in data:
-        if ele > 127 and ele < 192:
+        if ele >= 0 and ele <= 127:
+            test = True
+        elif ele >= 192 and ele <= 255:
+            test = True
+        else:
             test = False
-        if ele > 255:
-            test = False
-    if test == False:
-        return False
-    return True
+    if test == True:
+        return True
+    return False
