@@ -1,16 +1,28 @@
 #!/usr/bin/python3
-
+"""UTF-8 Validation
+"""
 
 def validUTF8(data):
-    """check if a given dataset is a valid UTF-8 encoding"""
-    test = True
-    for ele in data:
-        if ele >= 0 and ele <= 127:
-            test = True
-        elif ele >= 192 and ele <= 255:
-            test = True
+    """Determines if a given data set represents
+     a valid UTF-8 encoding or not
+    """
+    count = 0
+    for d in data:
+        if count == 0:
+            if d & 128 == 0:
+                count = 0
+            elif d & 224 == 192:
+                count = 1
+            elif d & 240 == 224:
+                count = 2
+            elif d & 248 == 240:
+                count = 3
+            else:
+                return False
         else:
-            test = False
-    if test:
+            if d & 192 != 128:
+                return False
+            count -= 1
+    if count == 0:
         return True
     return False
