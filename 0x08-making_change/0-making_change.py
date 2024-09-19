@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Making changes """
 
+
 def makeChange(coins, total):
     """ Generate changes needed to reach total
 
