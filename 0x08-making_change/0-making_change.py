@@ -17,6 +17,3 @@ def makeChange(coins, total):
             dp[amount] = min(dp[amount], (dp[amount - coin] + 1))
     
     return dp[total] if dp[total] != total + 1 else -1
-
-print(makeChange([1, 2, 25], 37))  # Output: 4 (25 + 10 + 2)
-print(makeChange([1256, 54, 48, 16, 102], 1453))  # Output: -1 (not possible)
