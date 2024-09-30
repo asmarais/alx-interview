@@ -19,5 +19,5 @@ def canUnlockAll(boxes):
             if key < n and key not in opened_boxes:
                 opened_boxes.add(key)
                 stack.append(key)
-    print(opened_boxes)
     return len(opened_boxes) == n
+    
